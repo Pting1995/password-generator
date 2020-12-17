@@ -35,36 +35,45 @@ function writePassword() {
   passLength = prompt("Choose a length for your password! The number must be greater than 8 but less than 128.")
   
   if (passLength >= 8 && passLength <= 128) {
-    // ask user if they want lowercase, uppercase, numeric and/or special characters
+    // checks if user wants lower case
     lowerCase = confirm("Do you want lower case characters? There are " + lowerArr.length + " lower case characters.")
     if (lowerCase === true) {
-      alert("lowercase was added")
+      // adds lowercase to controlArr
+      controlArr = lowerArr
     }
 
+    // checks if user wants upper case
     upperCase = confirm("Do you want upper case characters? There are " + upperArr.length + " upper case characters.")
     if (upperCase === true) {
       // add uppercase to controlarr
-      alert("uppercase was added")
+      controlArr = controlArr.concat(upperArr)
     }
-    
+
+    // checks if user wants numeric case
     numbericPass = confirm("Do you want numberic characters?There are " + numArr.length + " numeric characters.")
     if (numbericPass === true) {
       // add numbers to controlarr
-      alert("numbers was added")
+      controlArr = controlArr.concat(numArr)
     }
 
+    // checks if user wants special case
     specialChar = confirm("Do you want special characters? There are " + specArr.length + " special characters")
     if (specialChar === true) {
       // add special characters to controllarr
-      alert("special characters was added")
+      controlArr = controlArr.concat(specArr)
     }
+    
+    // alert for if someone denys all character types
+    if (lowerCase === false && upperCase === false && numbericPass === false && specialChar === false) {
+      alert("You need to select at least one character type!")
+    }
+
+    // RNG
   }
     
   else {
     alert("YOU MUST PICK A NUMBER BETWEEN 8 AND 128!")
   }
-  
-  // needs at least 1 character type to work
 
   // put all characters into an 4 arrays based on character type
   // if no character is selected then a prompt should force you to
