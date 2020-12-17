@@ -1,4 +1,3 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
@@ -23,11 +22,16 @@ function writePassword() {
   var specArr = [
     "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", "|", "\\", "/", ":", ";", "\"", "'", "<", ">", ",", ".", "?",
   ]
+
   // all user selected characters are added to this main array to choose from
   var controlArr = [
     
   ]
-
+  
+  // RNG
+  function rngGen() {
+    return Math.floor(Math.random() * (controlArr.length + 1))
+  }
 
   // passwordText.value = password;
 
@@ -68,16 +72,16 @@ function writePassword() {
       alert("You need to select at least one character type!")
     }
 
-    // RNG
+    // character generator
+    for (i = 0; i < passLength.length; i++) {
+      var randomNum = rngGen()
+      
+    }
   }
     
   else {
     alert("YOU MUST PICK A NUMBER BETWEEN 8 AND 128!")
   }
-
-  // put all characters into an 4 arrays based on character type
-  // if no character is selected then a prompt should force you to
-
 }
 
 // Add event listener to generate button
