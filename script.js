@@ -2,8 +2,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
+  var password = document.querySelector("#password");
   var passLength = 0;
   var lowerCase = false;
   var upperCase = false;
@@ -54,14 +53,14 @@ function writePassword() {
       controlArr = controlArr.concat(upperArr)
     }
 
-    // checks if user wants numeric case
+    // checks if user wants numeric chars
     numbericPass = confirm("Do you want numberic characters?There are " + numArr.length + " numeric characters.")
     if (numbericPass === true) {
       // add numbers to controlarr
       controlArr = controlArr.concat(numArr)
     }
 
-    // checks if user wants special case
+    // checks if user wants special chars
     specialChar = confirm("Do you want special characters? There are " + specArr.length + " special characters")
     if (specialChar === true) {
       // add special characters to controllarr
@@ -76,13 +75,12 @@ function writePassword() {
     // character generator
     for (i = 0; i < passLength; i++) {
       var randomNum = rngGen();
-      console.log(randomNum)
       var randChar = controlArr[randomNum];
-      console.log(randChar)
       pwOut = pwOut + randChar
     }
 
-    alert("your password is:" + pwOut)
+    // password gets updated in the html by this:
+    password.textContent = pwOut
   }
     
   else {
