@@ -33,9 +33,7 @@ function writePassword() {
     return Math.floor(Math.random() * controlArr.length)
   }
 
-  // passwordText.value = password;
-
-  // needs length to be 8-128
+  // requires length to be 8-128
   passLength = prompt("Choose a length for your password! The number must be greater than 8 but less than 128.")
   
   if (passLength >= 8 && passLength <= 128) {
@@ -54,7 +52,7 @@ function writePassword() {
     }
 
     // checks if user wants numeric chars
-    numbericPass = confirm("Do you want numberic characters?There are " + numArr.length + " numeric characters.")
+    numbericPass = confirm("Do you want numberic characters? There are " + numArr.length + " numeric characters.")
     if (numbericPass === true) {
       // add numbers to controlarr
       controlArr = controlArr.concat(numArr)
