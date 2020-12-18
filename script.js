@@ -9,6 +9,7 @@ function writePassword() {
   var upperCase = false;
   var numbericPass = false;
   var specialChar = false;
+  var pwOut = "";
 
   var lowerArr = [
     "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
@@ -30,7 +31,7 @@ function writePassword() {
   
   // RNG
   function rngGen() {
-    return Math.floor(Math.random() * (controlArr.length + 1))
+    return Math.floor(Math.random() * controlArr.length)
   }
 
   // passwordText.value = password;
@@ -73,10 +74,15 @@ function writePassword() {
     }
 
     // character generator
-    for (i = 0; i < passLength.length; i++) {
-      var randomNum = rngGen()
-      
+    for (i = 0; i < passLength; i++) {
+      var randomNum = rngGen();
+      console.log(randomNum)
+      var randChar = controlArr[randomNum];
+      console.log(randChar)
+      pwOut = pwOut + randChar
     }
+
+    alert("your password is:" + pwOut)
   }
     
   else {
